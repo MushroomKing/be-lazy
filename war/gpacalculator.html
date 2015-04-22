@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Semester GPA Calculator</h1>
+	If you have less than 7 classes or if one or more of your classes did
+	not count for GPA, select "No GPA" for the "Maximum GPA" field and
+	leave the "Grade" field blank.
+	<br />
+	<br />
+	<b>Class 1:</b>
+	<br /> Maximum GPA:
+	<select id="classType1">
+		<option value="nogpa">No GPA</option>
+		<option value="5.0">5.0</option>
+		<option value="4.5">4.5</option>
+		<option value="4.0">4.0</option>
+	</select>
+	<br /> Grade:
+	<input type="number" id="grade1" min="0" max="100">
+	<br />
+	<br />
+	<b>Class 2:</b>
+	<br /> Maximum GPA:
+	<select id="classType2">
+		<option value="nogpa">No GPA</option>
+		<option value="5.0">5.0</option>
+		<option value="4.5">4.5</option>
+		<option value="4.0">4.0</option>
+	</select>
+	<br /> Grade:
+	<input type="number" id="grade2" min="0" max="100">
+	<br />
+	<br />
+	<b>Class 3:</b>
+	<br /> Maximum GPA:
+	<select id="classType3">
+		<option value="nogpa">No GPA</option>
+		<option value="5.0">5.0</option>
+		<option value="4.5">4.5</option>
+		<option value="4.0">4.0</option>
+	</select>
+	<br /> Grade:
+	<input type="number" id="grade3" min="0" max="100">
+	<br />
+	<br />
+	<b>Class 4:</b>
+	<br /> Maximum GPA:
+	<select id="classType4">
+		<option value="nogpa">No GPA</option>
+		<option value="5.0">5.0</option>
+		<option value="4.5">4.5</option>
+		<option value="4.0">4.0</option>
+	</select>
+	<br /> Grade:
+	<input type="number" id="grade4" min="0" max="100">
+	<br />
+	<br />
+	<b>Class 5:</b>
+	<br /> Maximum GPA:
+	<select id="classType5">
+		<option value="nogpa">No GPA</option>
+		<option value="5.0">5.0</option>
+		<option value="4.5">4.5</option>
+		<option value="4.0">4.0</option>
+	</select>
+	<br /> Grade:
+	<input type="number" id="grade5" min="0" max="100">
+	<br />
+	<br />
+	<b>Class 6:</b>
+	<br /> Maximum GPA:
+	<select id="classType6">
+		<option value="nogpa">No GPA</option>
+		<option value="5.0">5.0</option>
+		<option value="4.5">4.5</option>
+		<option value="4.0">4.0</option>
+	</select>
+	<br /> Grade:
+	<input type="number" id="grade6" min="0" max="100">
+	<br />
+	<br />
+	<b>Class 7:</b>
+	<br /> Maximum GPA:
+	<select id="classType7">
+		<option value="nogpa">No GPA</option>
+		<option value="5.0">5.0</option>
+		<option value="4.5">4.5</option>
+		<option value="4.0">4.0</option>
+	</select>
+	<br /> Grade:
+	<input type="number" id="grade7" min="0" max="100">
+	<br />
+	<br />
+	<button onclick="calculateGPA()">Calculate GPA</button>
+	<p id="output"></p>
+	<script>
+function calculateGPA() {
+		var classTypes = ["classType1", "classType2", "classType3", "classType4", "classType5", "classType6", "classType7"];
+		var grades = ["grade1", "grade2", "grade3", "grade4", "grade5", "grade6", "grade7"];
+		var sum = 0;
+		var classes = 0;
+		for (var i = 0; i < 7; i++)
+		{
+			var e = document.getElementById(classTypes[i]);
+			if (!(e.options[e.selectedIndex].value === "nogpa"))
+			{
+				var grade = Number(document.getElementById(grades[i]).value);
+				var gp = Number(e.value);
+				if (grade < 97)
+				{
+					gp -= .2;
+					if (grade < 93)
+					{
+						gp -= .2;
+						if (grade < 90)
+						{
+							gp -= .2;
+							if (grade < 87)
+							{
+								gp -= .2;
+								if (grade < 83)
+								{
+									gp -= .2;
+									if (grade < 80)
+									{
+										gp -= .2;
+										if (grade < 77)
+										{
+											gp -= .2;
+											if (grade < 73)
+											{
+												gp -= .2;
+												if (grade < 71)
+												{
+													gp -= .4;
+													if (grade < 70)
+													{
+														gp = 0;
+													}
+												}
+											}
+										} 
+									}
+								}
+							}
+						}
+					}
+				}
+				sum += gp;
+				classes++;
+			}
+		}
+		document.getElementById("output").innerHTML = (classes === 0 ? 0 : sum / classes);
+}
+</script>
+</body>
+</html>

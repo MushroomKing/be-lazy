@@ -150,7 +150,7 @@ function calculateGPA() {
 				classes++;
 			}
 		}
-		document.getElementById("output").innerHTML = (classes === 0 ? 0 : sum / classes);
+		document.getElementById("output").innerHTML = (classes === 0 ? 0 : sum / classes).toFixed(9);
 }
 </script>
 </body>
